@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/pkg-info.mk
+
+# generate manpage based on --help option of executable
+_mkman = help2man $(if $3,--name "$(strip $3)") --no-info --output $2 $1 \
+ || { $1 --help; false; }
+
+%:
+	dh $@ --builddirectory=build
+
+execute_before_dh_auto_build:
+	echo $(DEB_VERSION_UPSTREAM) > VERSION
+
+execute_after_dh_auto_build:
+	$(call _mkman,build/sassc,debian/sassc.1, \
+		Sass compiles CSS from SASS or SCSS files)

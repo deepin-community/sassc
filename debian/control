@@ -1,0 +1,32 @@
+Source: sassc
+Section: web
+Priority: optional
+Build-Depends:
+ debhelper-compat (= 13),
+ help2man,
+ libsass-dev (>= 3.6.1),
+Maintainer: Debian Sass team <pkg-sass-devel@lists.alioth.debian.org>
+Uploaders:
+ Jonas Smedegaard <dr@jones.dk>,
+ Anthony Fok <foka@debian.org>,
+Standards-Version: 4.6.0
+Homepage: https://github.com/sass/sassc
+Vcs-Git: https://salsa.debian.org/sass-team/sassc.git
+Vcs-Browser: https://salsa.debian.org/sass-team/sassc
+Rules-Requires-Root: no
+
+Package: sassc
+Section: web
+Architecture: any
+Multi-Arch: foreign
+Depends:
+ libsass1 (>= 3.6.1),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: C/C++ port of the Sass CSS precompiler - command-line tool
+ SassC is a C/C++ port of the Sass engine.
+ The point is to be simple, fast, and easy to integrate.
+ .
+ Sass is a pre-processing language for CSS.
+ It allows you to write cleaner stylesheets
+ and makes collaboration on your CSS a breeze.
